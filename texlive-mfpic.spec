@@ -1,3 +1,9 @@
+# revision 21800
+# category Package
+# catalog-ctan /graphics/mfpic
+# catalog-date 2011-03-21 22:04:50 +0100
+# catalog-license lppl1.3
+# catalog-version 1.06
 Name:		texlive-mfpic
 Version:	1.06
 Release:	1
@@ -69,6 +75,7 @@ equally well in LaTeX and PDFLaTeX.
 %doc %{_texmfdistdir}/source/generic/mfpic/grafbase.dtx
 %doc %{_texmfdistdir}/source/generic/mfpic/mfpic.dtx
 %doc %{_texmfdistdir}/source/generic/mfpic/mfpic.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -79,3 +86,5 @@ equally well in LaTeX and PDFLaTeX.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar metafont metapost tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
