@@ -18,9 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 Mfpic is a scheme for producing pictures from (La)TeX commands.
@@ -33,20 +30,12 @@ point where the original (La)TeX commands appeared. Note that
 the ability to use MetaPost here means that the package works
 equally well in LaTeX and PDFLaTeX.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -76,7 +65,6 @@ equally well in LaTeX and PDFLaTeX.
 %doc %{_texmfdistdir}/source/generic/mfpic/grafbase.dtx
 %doc %{_texmfdistdir}/source/generic/mfpic/mfpic.dtx
 %doc %{_texmfdistdir}/source/generic/mfpic/mfpic.ins
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -87,5 +75,3 @@ equally well in LaTeX and PDFLaTeX.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar metafont metapost tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
