@@ -6,7 +6,7 @@
 # catalog-version 1.10
 Name:		texlive-mfpic
 Version:	1.10
-Release:	6
+Release:	7
 Summary:	Draw Metafont/post pictures from (La)TeX commands
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/mfpic
