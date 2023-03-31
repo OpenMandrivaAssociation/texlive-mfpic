@@ -1,6 +1,6 @@
 Name:		texlive-mfpic
 Version:	28444
-Release:	1
+Release:	2
 Summary:	Draw Metafont/post pictures from (La)TeX commands
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/graphics/mfpic
